@@ -1,20 +1,20 @@
 {
-  "name": "@imranbarbhuiya/img-hasher-win32-x64-msvc",
-  "version": "0.0.5",
-  "os": [
-    "win32"
-  ],
-  "cpu": [
-    "x64"
-  ],
-  "main": "img-hasher.win32-x64-msvc.node",
-  "files": [
-    "img-hasher.win32-x64-msvc.node"
-  ],
-  "description": "A fast image hash and hamming distance lib",
-  "license": "MIT",
-  "engines": {
-    "node": ">= 10"
-  },
-  "repository": "https://github.com/imranbarbhuiya/img-hasher"
+	"name": "@imranbarbhuiya/img-hasher-win32-x64-msvc",
+	"version": "0.0.5",
+	"os": [
+		"win32"
+	],
+	"cpu": [
+		"x64"
+	],
+	"main": "img-hasher.win32-x64-msvc.node",
+	"files": [
+		"img-hasher.win32-x64-msvc.node"
+	],
+	"description": "A fast image hash and hamming distance lib",
+	"license": "MIT",
+	"engines": {
+		"node": ">= 10"
+	},
+	"repository": "https://github.com/imranbarbhuiya/img-hasher"
 }

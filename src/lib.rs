@@ -26,7 +26,7 @@ extern crate napi_derive;
 #[napi]
 pub async fn get_hash(input: Either<Buffer, String>, hash_algo: Option<HashAlgorithm>) {
     let buffer = fetch_buffer(input).await;
-    let image = image::load_from_memory(&buffer).unwrap();
+    let image = image::load_from_memory(&buffer).expect("Failed to load image.");
     let hasher_config = HasherConfig::new();
     let hasher_config = match hash_algo {
         Some(hash_algo) => hasher_config.hash_alg(hash_algo.into()),
@@ -51,8 +51,10 @@ pub async fn get_hash(input: Either<Buffer, String>, hash_algo: Option<HashAlgor
 /// ```
 #[napi]
 pub async fn hamming_distance_from_hash(input1: String, input2: String) {
-    let hash1: ImageHash<[u8; 64]> = ImageHash::from_base64(&input1).unwrap();
-    let hash2: ImageHash<[u8; 64]> = ImageHash::from_base64(&input2).unwrap();
+    let hash1: ImageHash<[u8; 64]> =
+        ImageHash::from_base64(&input1).expect("Invalid hash provided");
+    let hash2: ImageHash<[u8; 64]> =
+        ImageHash::from_base64(&input2).expect("Invalid hash provided");
 
     hash1.dist(&hash2);
 }
@@ -78,8 +80,8 @@ pub async fn hamming_distance(
     let buffer1 = fetch_buffer(input1).await;
     let buffer2 = fetch_buffer(input2).await;
 
-    let image1 = image::load_from_memory(&buffer1).unwrap();
-    let image2 = image::load_from_memory(&buffer2).unwrap();
+    let image1 = image::load_from_memory(&buffer1).expect("Failed to load image.");
+    let image2 = image::load_from_memory(&buffer2).expect("Failed to load image.");
 
     let hasher_config = HasherConfig::new();
     let hasher_config = match hash_algo {

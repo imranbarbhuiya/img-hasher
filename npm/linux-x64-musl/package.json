@@ -1,23 +1,23 @@
 {
-  "name": "@imranbarbhuiya/img-hasher-linux-x64-musl",
-  "version": "0.0.5",
-  "os": [
-    "linux"
-  ],
-  "cpu": [
-    "x64"
-  ],
-  "main": "img-hasher.linux-x64-musl.node",
-  "files": [
-    "img-hasher.linux-x64-musl.node"
-  ],
-  "description": "A fast image hash and hamming distance lib",
-  "license": "MIT",
-  "engines": {
-    "node": ">= 10"
-  },
-  "repository": "https://github.com/imranbarbhuiya/img-hasher",
-  "libc": [
-    "musl"
-  ]
+	"name": "@imranbarbhuiya/img-hasher-linux-x64-musl",
+	"version": "0.0.5",
+	"os": [
+		"linux"
+	],
+	"cpu": [
+		"x64"
+	],
+	"main": "img-hasher.linux-x64-musl.node",
+	"files": [
+		"img-hasher.linux-x64-musl.node"
+	],
+	"description": "A fast image hash and hamming distance lib",
+	"license": "MIT",
+	"engines": {
+		"node": ">= 10"
+	},
+	"repository": "https://github.com/imranbarbhuiya/img-hasher",
+	"libc": [
+		"musl"
+	]
 }

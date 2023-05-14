@@ -23,7 +23,7 @@
 		"build:debug": "napi build --platform",
 		"prepublishOnly": "napi prepublish -t npm",
 		"universal": "napi universal",
-		"version": "napi version && yarn format",
+		"version": "napi version && yarn format && git add .",
 		"format": "prettier --write . --ignore-unknown"
 	},
 	"devDependencies": {
