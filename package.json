@@ -21,7 +21,7 @@
 		"artifacts": "napi artifacts",
 		"build": "napi build --platform --release",
 		"build:debug": "napi build --platform",
-		"prepublish": "napi prepublish -t npm",
+		"prepublishOnly": "napi prepublish -t npm",
 		"universal": "napi universal",
 		"version": "napi version"
 	},
@@ -32,6 +32,10 @@
 		"eslint-config-mahir": "^0.0.26",
 		"prettier": "^2.8.8"
 	},
+	"files": [
+		"index.js",
+		"index.d.ts"
+	],
 	"keywords": [
 		"hash",
 		"image hash",
