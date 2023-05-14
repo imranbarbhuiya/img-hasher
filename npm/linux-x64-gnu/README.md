@@ -1,3 +1,3 @@
-# `@imranbarbhuiya/image-distance-linux-x64-gnu`
+# `@imranbarbhuiya/img-hash-linux-x64-gnu`
 
-This is the **x86_64-unknown-linux-gnu** binary for `@imranbarbhuiya/image-distance`
+This is the **x86_64-unknown-linux-gnu** binary for `@imranbarbhuiya/img-hash`

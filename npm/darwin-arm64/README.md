@@ -1,3 +1,3 @@
-# `@imranbarbhuiya/image-distance-darwin-arm64`
+# `@imranbarbhuiya/img-hash-darwin-arm64`
 
-This is the **aarch64-apple-darwin** binary for `@imranbarbhuiya/image-distance`
+This is the **aarch64-apple-darwin** binary for `@imranbarbhuiya/img-hash`

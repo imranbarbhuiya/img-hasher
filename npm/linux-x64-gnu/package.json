@@ -1,5 +1,5 @@
 {
-  "name": "@imranbarbhuiya/image-distance-linux-x64-gnu",
+  "name": "@imranbarbhuiya/img-hash-linux-x64-gnu",
   "version": "0.0.0",
   "os": [
     "linux"
@@ -7,14 +7,16 @@
   "cpu": [
     "x64"
   ],
-  "main": "image-distance.linux-x64-gnu.node",
+  "main": "img-hash.linux-x64-gnu.node",
   "files": [
-    "image-distance.linux-x64-gnu.node"
+    "img-hash.linux-x64-gnu.node"
   ],
+  "description": "A fast image hash and hamming distance lib",
   "license": "MIT",
   "engines": {
     "node": ">= 10"
   },
+  "repository": "https://github.com/imranbarbhuiya/image-distance",
   "libc": [
     "glibc"
   ]

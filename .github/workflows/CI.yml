@@ -1,7 +1,7 @@
 name: CI
 env:
   DEBUG: napi:*
-  APP_NAME: image-distance
+  APP_NAME: img-hash
   MACOSX_DEPLOYMENT_TARGET: '10.13'
 'on':
   push:
@@ -213,22 +213,18 @@ jobs:
         run: docker run --rm -v $(pwd):/build -w /build node:${{ matrix.node }}-alpine yarn test
   cargo-clippy:
     name: Cargo clippy
-    if: >-
-      ${{ !contains(github.event.head_commit.message, 'chore: ') }}
+    if: "${{ !contains(github.event.head_commit.message, 'chore: ') }}"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
         with:
           submodules: true
-
       - name: Rust Cache
         uses: Swatinem/rust-cache@v2
-
       - uses: actions-rs/toolchain@v1
         with:
           profile: minimal
           components: clippy
-
       - run: cargo clippy --all --all-targets -- -D warnings
   publish:
     name: Publish

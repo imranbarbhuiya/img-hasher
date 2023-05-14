@@ -1,5 +1,5 @@
 {
-  "name": "@imranbarbhuiya/image-distance-darwin-x64",
+  "name": "@imranbarbhuiya/img-hash-darwin-x64",
   "version": "0.0.0",
   "os": [
     "darwin"
@@ -7,12 +7,14 @@
   "cpu": [
     "x64"
   ],
-  "main": "image-distance.darwin-x64.node",
+  "main": "img-hash.darwin-x64.node",
   "files": [
-    "image-distance.darwin-x64.node"
+    "img-hash.darwin-x64.node"
   ],
+  "description": "A fast image hash and hamming distance lib",
   "license": "MIT",
   "engines": {
     "node": ">= 10"
-  }
+  },
+  "repository": "https://github.com/imranbarbhuiya/image-distance"
 }

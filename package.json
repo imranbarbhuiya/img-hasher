@@ -1,11 +1,11 @@
 {
-	"name": "image-distance",
-	"description": "A fast image hash distance calculation library",
+	"name": "img-hasher",
+	"description": "A fast image hash and hamming distance lib",
 	"version": "0.0.0",
 	"main": "index.js",
 	"types": "index.d.ts",
 	"napi": {
-		"name": "image-distance",
+		"name": "img-hash",
 		"triples": {
 			"additional": [
 				"aarch64-apple-darwin",
@@ -14,6 +14,14 @@
 		}
 	},
 	"license": "MIT",
+	"scripts": {
+		"artifacts": "napi artifacts",
+		"build": "napi build --platform --release",
+		"build:debug": "napi build --platform",
+		"prepublish": "napi prepublish -t npm",
+		"universal": "napi universal",
+		"version": "napi version"
+	},
 	"devDependencies": {
 		"@napi-rs/cli": "^2.15.2",
 		"@types/node": "^20.1.4",
@@ -21,16 +29,28 @@
 		"eslint-config-mahir": "^0.0.26",
 		"prettier": "^2.8.8"
 	},
+	"keywords": [
+		"hash",
+		"image hash",
+		"phash",
+		"dhash",
+		"hamming distance",
+		"image difference",
+		"image distance",
+		"image similarity",
+		"perceptual hash",
+		"perceptual image hash"
+	],
 	"engines": {
 		"node": ">= 10"
 	},
-	"scripts": {
-		"artifacts": "napi artifacts",
-		"build": "napi build --platform --release",
-		"build:debug": "napi build --platform",
-		"prepublishOnly": "napi prepublish -t npm",
-		"universal": "napi universal",
-		"version": "napi version"
-	},
-	"packageManager": "yarn@3.5.1"
+	"packageManager": "yarn@3.5.1",
+	"repository": "https://github.com/imranbarbhuiya/image-distance",
+	"optionalDependencies": {
+		"img-hasher-win32-x64-msvc": "0.0.0",
+		"img-hasher-darwin-x64": "0.0.0",
+		"img-hasher-linux-x64-gnu": "0.0.0",
+		"img-hasher-darwin-arm64": "0.0.0",
+		"img-hasher-linux-x64-musl": "0.0.0"
+	}
 }
