@@ -90,7 +90,7 @@ export const enum HashAlgorithm {
  * const hash = await getHash('https://example.com/image.jpg');
  * ```
  */
-export function getHash(input: Buffer | string, hashAlgo?: HashAlgorithm | undefined | null): Promise<void>;
+export function getHash(input: Buffer | string, hashAlgo?: HashAlgorithm | undefined | null): Promise<string>;
 /**
  * get hamming distance of two image hashes
  *
@@ -106,7 +106,7 @@ export function getHash(input: Buffer | string, hashAlgo?: HashAlgorithm | undef
  * const distance = hammingDistanceFromHash(hash1, hash2);
  * ```
  */
-export function hammingDistanceFromHash(input1: string, input2: string): Promise<void>;
+export function hammingDistanceFromHash(input1: string, input2: string): Promise<number>;
 /**
  * get hamming distance of two images
  *
@@ -125,4 +125,4 @@ export function hammingDistance(
 	input1: Buffer | string,
 	input2: Buffer | string,
 	hashAlgo?: HashAlgorithm | undefined | null,
-): Promise<void>;
+): Promise<number>;

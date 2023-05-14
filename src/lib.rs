@@ -24,16 +24,25 @@ extern crate napi_derive;
 /// const hash = await getHash('https://example.com/image.jpg');
 /// ```
 #[napi]
-pub async fn get_hash(input: Either<Buffer, String>, hash_algo: Option<HashAlgorithm>) {
-    let buffer = fetch_buffer(input).await;
-    let image = image::load_from_memory(&buffer).expect("Failed to load image.");
+pub async fn get_hash(
+    input: Either<Buffer, String>,
+    hash_algo: Option<HashAlgorithm>,
+) -> Result<String> {
+    let buffer = fetch_buffer(input).await?;
+    let image = image::load_from_memory(&buffer).map_err(|e| {
+        Error::new(
+            Status::InvalidArg,
+            format!("Image loading failed with error: {}", e.to_string()),
+        )
+    })?;
+
     let hasher_config = HasherConfig::new();
     let hasher_config = match hash_algo {
         Some(hash_algo) => hasher_config.hash_alg(hash_algo.into()),
         None => hasher_config,
     };
     let hasher = hasher_config.to_hasher();
-    hasher.hash_image(&image).to_base64();
+    Ok(hasher.hash_image(&image).to_base64())
 }
 
 /// get hamming distance of two image hashes
@@ -50,13 +59,21 @@ pub async fn get_hash(input: Either<Buffer, String>, hash_algo: Option<HashAlgor
 /// const distance = hammingDistanceFromHash(hash1, hash2);
 /// ```
 #[napi]
-pub async fn hamming_distance_from_hash(input1: String, input2: String) {
-    let hash1: ImageHash<[u8; 64]> =
-        ImageHash::from_base64(&input1).expect("Invalid hash provided");
-    let hash2: ImageHash<[u8; 64]> =
-        ImageHash::from_base64(&input2).expect("Invalid hash provided");
+pub async fn hamming_distance_from_hash(input1: String, input2: String) -> Result<u32> {
+    let hash1: ImageHash<[u8; 64]> = ImageHash::from_base64(&input1).map_err(|e| {
+        Error::new(
+            Status::InvalidArg,
+            format!("Image loading failed with error: {:?}", e),
+        )
+    })?;
+    let hash2: ImageHash<[u8; 64]> = ImageHash::from_base64(&input2).map_err(|e| {
+        Error::new(
+            Status::InvalidArg,
+            format!("Image loading failed with error: {:?}", e),
+        )
+    })?;
 
-    hash1.dist(&hash2);
+    Ok(hash1.dist(&hash2))
 }
 
 /// get hamming distance of two images
@@ -76,12 +93,24 @@ pub async fn hamming_distance(
     input1: Either<Buffer, String>,
     input2: Either<Buffer, String>,
     hash_algo: Option<HashAlgorithm>,
-) {
-    let buffer1 = fetch_buffer(input1).await;
-    let buffer2 = fetch_buffer(input2).await;
+) -> Result<u32> {
+    let buffer1 = fetch_buffer(input1).await?;
+    let buffer2 = fetch_buffer(input2).await?;
 
-    let image1 = image::load_from_memory(&buffer1).expect("Failed to load image.");
-    let image2 = image::load_from_memory(&buffer2).expect("Failed to load image.");
+    let image1 = image::load_from_memory(&buffer1)
+        .map_err(|e| {
+            Error::new(
+                Status::InvalidArg,
+                format!("Image loading failed with error: {}", e.to_string()),
+            )
+        })
+        .unwrap();
+    let image2 = image::load_from_memory(&buffer2).map_err(|e| {
+        Error::new(
+            Status::InvalidArg,
+            format!("Image loading failed with error: {}", e.to_string()),
+        )
+    })?;
 
     let hasher_config = HasherConfig::new();
     let hasher_config = match hash_algo {
@@ -94,5 +123,5 @@ pub async fn hamming_distance(
     let hash1 = hasher.hash_image(&image1);
     let hash2 = hasher.hash_image(&image2);
 
-    hash1.dist(&hash2);
+    Ok(hash1.dist(&hash2))
 }

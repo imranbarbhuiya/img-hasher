@@ -134,6 +134,7 @@ jobs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository_owner == 'imranbarbhuiya'
     permissions:
       id-token: write
+      contents: write
     steps:
       - name: Checkout Project
         uses: actions/checkout@v3
