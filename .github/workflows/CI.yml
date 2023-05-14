@@ -86,7 +86,7 @@ jobs:
         run: yarn config set supportedArchitectures.cpu "ia32"
         shell: bash
       - name: Install dependencies
-        run: yarn install
+        run: yarn install  --immutable
       - name: Setup node x86
         uses: actions/setup-node@v3
         if: matrix.settings.target == 'i686-pc-windows-msvc'
@@ -136,7 +136,7 @@ jobs:
           check-latest: true
           cache: yarn
       - name: Install dependencies
-        run: yarn install
+        run: yarn install  --immutable
       - name: Download artifacts
         uses: actions/download-artifact@v3
         with:
@@ -168,7 +168,7 @@ jobs:
           check-latest: true
           cache: yarn
       - name: Install dependencies
-        run: yarn install
+        run: yarn install  --immutable
       - name: Download artifacts
         uses: actions/download-artifact@v3
         with:
@@ -200,7 +200,7 @@ jobs:
       - name: Install dependencies
         run: |
           yarn config set supportedArchitectures.libc "musl"
-          yarn install
+          yarn install  --immutable
       - name: Download artifacts
         uses: actions/download-artifact@v3
         with:
@@ -229,6 +229,8 @@ jobs:
   publish:
     name: Publish
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
     needs:
       - test-macOS-windows-binding
       - test-linux-x64-gnu-binding
@@ -242,7 +244,7 @@ jobs:
           check-latest: true
           cache: yarn
       - name: Install dependencies
-        run: yarn install
+        run: yarn install  --immutable
       - name: Download all artifacts
         uses: actions/download-artifact@v3
         with:
@@ -268,3 +270,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_CONFIG_PROVENANCE: true

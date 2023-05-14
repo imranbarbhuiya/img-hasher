@@ -1,3 +1,3 @@
-# `@imranbarbhuiya/img-hash-darwin-x64`
+# `@imranbarbhuiya/img-hasher-darwin-x64`
 
-This is the **x86_64-apple-darwin** binary for `@imranbarbhuiya/img-hash`
+This is the **x86_64-apple-darwin** binary for `@imranbarbhuiya/img-hasher`

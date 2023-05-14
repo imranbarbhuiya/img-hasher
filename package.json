@@ -1,11 +1,14 @@
 {
 	"name": "img-hasher",
-	"description": "A fast image hash and hamming distance lib",
+	"description": "A fast image hash generator and hamming distance calculator using multiple algorithms",
 	"version": "0.0.0",
 	"main": "index.js",
 	"types": "index.d.ts",
 	"napi": {
-		"name": "img-hash",
+		"name": "img-hasher",
+		"package": {
+			"name": "@imranbarbhuiya/img-hasher"
+		},
 		"triples": {
 			"additional": [
 				"aarch64-apple-darwin",
@@ -45,12 +48,5 @@
 		"node": ">= 10"
 	},
 	"packageManager": "yarn@3.5.1",
-	"repository": "https://github.com/imranbarbhuiya/image-distance",
-	"optionalDependencies": {
-		"img-hasher-win32-x64-msvc": "0.0.0",
-		"img-hasher-darwin-x64": "0.0.0",
-		"img-hasher-linux-x64-gnu": "0.0.0",
-		"img-hasher-darwin-arm64": "0.0.0",
-		"img-hasher-linux-x64-musl": "0.0.0"
-	}
+	"repository": "https://github.com/imranbarbhuiya/image-distance"
 }
