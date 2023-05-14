@@ -26,32 +26,39 @@ jobs:
       fail-fast: false
       matrix:
         settings:
-          - os: macos-latest
+          - host: macos-latest
             target: x86_64-apple-darwin
             build: |
               yarn build
               strip -x *.node
-          - os: windows-latest
+          - host: windows-latest
             build: yarn build
             target: x86_64-pc-windows-msvc
-          - os: ubuntu-latest
+          - host: ubuntu-latest
             target: x86_64-unknown-linux-gnu
             docker: ghcr.io/napi-rs/napi-rs/nodejs-rust:lts-debian
             build: |-
+              sudo apt-get install pkg-config libssl-dev -y;
+              export OPENSSL_LIB_DIR="/usr/lib/x86_64-linux-gnu";
+              export OPENSSL_INCLUDE="/usr/include/openssl";
               set -e &&
               yarn build --target x86_64-unknown-linux-gnu &&
               strip *.node
-          - os: ubuntu-latest
+          - host: ubuntu-latest
             target: x86_64-unknown-linux-musl
             docker: ghcr.io/napi-rs/napi-rs/nodejs-rust:lts-alpine
-            build: set -e && yarn build && strip *.node
-          - os: macos-latest
+            build: |-
+              apk add pkgconfig openssl-dev;
+              set -e &&
+              yarn build &&
+              strip *.node
+          - host: macos-latest
             target: aarch64-apple-darwin
             build: |
               yarn build --target aarch64-apple-darwin
               strip -x *.node
     name: stable - ${{ matrix.settings.target }} - node@18
-    runs-on: ${{ matrix.settings.os }}
+    runs-on: ${{ matrix.settings.host }}
     steps:
       - name: Checkout Project
         uses: actions/checkout@v3
@@ -77,7 +84,7 @@ jobs:
             ~/.cargo/git/db/
             .cargo-cache
             target/
-          key: ${{ matrix.settings.target }}-cargo-${{ matrix.settings.os }}
+          key: ${{ matrix.settings.target }}-cargo-${{ matrix.settings.host }}
       - name: Setup toolchain
         run: ${{ matrix.settings.setup }}
         if: ${{ matrix.settings.setup }}
@@ -89,7 +96,7 @@ jobs:
         if: ${{ matrix.settings.docker }}
         with:
           image: ${{ matrix.settings.docker }}
-          options: '--user 0:0 -v ${{ github.workspace }}/.cargo-cache/git/db:/root/.cargo/git/db -v ${{ github.workspace }}/.cargo/registry/cache:/root/.cargo/registry/cache -v ${{ github.workspace }}/.cargo/registry/index:/root/.cargo/registry/index -v ${{ github.workspace }}:/build -w /build'
+          options: '--user 0:0 -v ${{ github.workspace }}/.cargo-cache/git/db:/usr/local/cargo/git/db -v ${{ github.workspace }}/.cargo/registry/cache:/usr/local/cargo/registry/cache -v ${{ github.workspace }}/.cargo/registry/index:/usr/local/cargo/registry/index -v ${{ github.workspace }}:/build -w /build'
           run: ${{ matrix.settings.build }}
       - name: Build
         run: ${{ matrix.settings.build }}
@@ -117,10 +124,12 @@ jobs:
         with:
           profile: minimal
           components: clippy
+          toolchain: nightly
       - run: cargo clippy --all --all-targets -- -D warnings
 
   publish:
     name: Publish
+    needs: build
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository_owner == 'imranbarbhuiya'
     permissions:
@@ -128,10 +137,10 @@ jobs:
     steps:
       - name: Checkout Project
         uses: actions/checkout@v3
-      - name: Use Node.js v16
+      - name: Use Node.js v18
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
           cache: yarn
       - name: Install dependencies
         run: yarn install --immutable
@@ -146,14 +155,13 @@ jobs:
         shell: bash
       - name: Publish
         run: |
-          echo "provenance=true" >> ~/.npmrc
           echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
           if git log -1 --pretty=%B | grep "^[0-9]\+\.[0-9]\+\.[0-9]\+$";
           then
             npm publish --access public
           elif git log -1 --pretty=%B | grep "^[0-9]\+\.[0-9]\+\.[0-9]\+";
           then
-            npm publish --tag next --access public
+            npm publish --tag next --provenance --access public
           else
             echo "Not a release, skipping publish"
           fi

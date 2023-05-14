@@ -23,13 +23,12 @@
 		"build:debug": "napi build --platform",
 		"prepublishOnly": "napi prepublish -t npm",
 		"universal": "napi universal",
-		"version": "napi version"
+		"version": "napi version && yarn format",
+		"format": "prettier --write . --ignore-unknown"
 	},
 	"devDependencies": {
 		"@napi-rs/cli": "^2.15.2",
 		"@types/node": "^20.1.4",
-		"eslint": "^8.40.0",
-		"eslint-config-mahir": "^0.0.26",
 		"prettier": "^2.8.8"
 	},
 	"files": [
@@ -52,5 +51,5 @@
 		"node": ">= 10"
 	},
 	"packageManager": "yarn@3.5.1",
-	"repository": "https://github.com/imranbarbhuiya/image-distance"
+	"repository": "https://github.com/imranbarbhuiya/img-hasher"
 }

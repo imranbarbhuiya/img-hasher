@@ -20,7 +20,7 @@ extern crate napi_derive;
 ///
 /// # Example
 /// ```js
-/// const { getHash } = require('image-distance');
+/// const { getHash } = require('img-hasher');
 /// const hash = await getHash('https://example.com/image.jpg');
 /// ```
 #[napi]
@@ -44,7 +44,7 @@ pub async fn get_hash(input: Either<Buffer, String>, hash_algo: Option<HashAlgor
 ///
 /// # Example
 /// ```js
-/// const { getHash, hammingDistanceFromHash } = require('image-distance');
+/// const { getHash, hammingDistanceFromHash } = require('img-hasher');
 /// const hash1 = await getHash('https://example.com/image1.jpg');
 /// const hash2 = await getHash('https://example.com/image2.jpg');
 /// const distance = hammingDistanceFromHash(hash1, hash2);
@@ -66,7 +66,7 @@ pub async fn hamming_distance_from_hash(input1: String, input2: String) {
 ///
 /// # Example
 /// ```js
-/// const { hammingDistance } = require('image-distance');
+/// const { hammingDistance } = require('img-hasher');
 /// const distance = await hammingDistance('https://example.com/image1.jpg', 'https://example.com/image2.jpg');
 /// ```
 #[napi]
