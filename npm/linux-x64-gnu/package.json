@@ -1,23 +1,23 @@
 {
-	"name": "@imranbarbhuiya/img-hasher-linux-x64-gnu",
-	"version": "0.0.0",
-	"os": [
-		"linux"
-	],
-	"cpu": [
-		"x64"
-	],
-	"main": "img-hash.linux-x64-gnu.node",
-	"files": [
-		"img-hash.linux-x64-gnu.node"
-	],
-	"description": "A fast image hash and hamming distance lib",
-	"license": "MIT",
-	"engines": {
-		"node": ">= 10"
-	},
-	"repository": "https://github.com/imranbarbhuiya/image-distance",
-	"libc": [
-		"glibc"
-	]
+  "name": "@imranbarbhuiya/img-hasher-linux-x64-gnu",
+  "version": "0.0.1",
+  "os": [
+    "linux"
+  ],
+  "cpu": [
+    "x64"
+  ],
+  "main": "img-hash.linux-x64-gnu.node",
+  "files": [
+    "img-hash.linux-x64-gnu.node"
+  ],
+  "description": "A fast image hash and hamming distance lib",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 10"
+  },
+  "repository": "https://github.com/imranbarbhuiya/image-distance",
+  "libc": [
+    "glibc"
+  ]
 }
