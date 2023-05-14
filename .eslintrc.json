@@ -1,0 +1,8 @@
+{
+	"root": true,
+	"extends": ["mahir/common", "mahir/node", "mahir/prettier"],
+	"ignorePatterns": ["src", "./index.js"],
+	"rules": {
+		"unicorn/no-abusive-eslint-disable": "off"
+	}
+}
