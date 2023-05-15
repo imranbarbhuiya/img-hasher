@@ -106,7 +106,7 @@ export function getHash(input: Buffer | string, hashAlgo?: HashAlgorithm | undef
  * const distance = hammingDistanceFromHash(hash1, hash2);
  * ```
  */
-export function hammingDistanceFromHash(input1: string, input2: string): Promise<number>;
+export function hammingDistanceFromHash(input1: string, input2: string): number;
 /**
  * get hamming distance of two images
  *

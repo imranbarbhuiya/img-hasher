@@ -13,7 +13,10 @@ on:
       - '**/*.md'
       - LICENSE
       - '**/*.gitignore'
-      - .editorconfig
+      - .prettierrc.json
+      - .prettierignore
+      - rustfmt.toml
+      - .vscode
   pull_request:
 
 concurrency:
