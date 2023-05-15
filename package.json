@@ -24,7 +24,7 @@
 		"prepublishOnly": "napi prepublish -t npm",
 		"universal": "napi universal",
 		"version": "napi version && yarn format && git add .",
-		"format": "prettier --write . --ignore-unknown"
+		"format": "prettier --write . --ignore-unknown && cargo +nightly fmt"
 	},
 	"devDependencies": {
 		"@napi-rs/cli": "^2.15.2",

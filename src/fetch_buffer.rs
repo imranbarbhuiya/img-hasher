@@ -7,7 +7,7 @@ pub async fn fetch_buffer(input: Either<Buffer, String>) -> Result<Vec<u8>, Erro
             let res = reqwest::get(&url).await.map_err(|e| {
                 Error::new(
                     Status::InvalidArg,
-                    format!("Image fetching failed with error: {}", e.to_string()),
+                    format!("Image fetching failed with error: {}", e),
                 )
             })?;
 
@@ -17,10 +17,7 @@ pub async fn fetch_buffer(input: Either<Buffer, String>) -> Result<Vec<u8>, Erro
                 .map_err(|e| {
                     Error::new(
                         Status::InvalidArg,
-                        format!(
-                            "Getting bytes from url failed with error: {}",
-                            e.to_string()
-                        ),
+                        format!("Getting bytes from url failed with error: {}", e),
                     )
                 })?
                 .to_vec();

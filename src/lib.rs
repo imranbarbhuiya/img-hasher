@@ -32,7 +32,7 @@ pub async fn get_hash(
     let image = image::load_from_memory(&buffer).map_err(|e| {
         Error::new(
             Status::InvalidArg,
-            format!("Image loading failed with error: {}", e.to_string()),
+            format!("Image loading failed with error: {}", e),
         )
     })?;
 
@@ -59,7 +59,7 @@ pub async fn get_hash(
 /// const distance = hammingDistanceFromHash(hash1, hash2);
 /// ```
 #[napi]
-pub async fn hamming_distance_from_hash(input1: String, input2: String) -> Result<u32> {
+pub fn hamming_distance_from_hash(input1: String, input2: String) -> Result<u32> {
     let hash1: ImageHash<[u8; 64]> = ImageHash::from_base64(&input1).map_err(|e| {
         Error::new(
             Status::InvalidArg,
@@ -101,14 +101,14 @@ pub async fn hamming_distance(
         .map_err(|e| {
             Error::new(
                 Status::InvalidArg,
-                format!("Image loading failed with error: {}", e.to_string()),
+                format!("Image loading failed with error: {}", e),
             )
         })
         .unwrap();
     let image2 = image::load_from_memory(&buffer2).map_err(|e| {
         Error::new(
             Status::InvalidArg,
-            format!("Image loading failed with error: {}", e.to_string()),
+            format!("Image loading failed with error: {}", e),
         )
     })?;
 
