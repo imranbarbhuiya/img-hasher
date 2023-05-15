@@ -1,15 +1,13 @@
-extern crate image;
-extern crate image_hasher;
-use hash_algo::HashAlgorithm;
-use napi::bindgen_prelude::*;
+use image_hasher::{HasherConfig, ImageHash};
+use napi::bindgen_prelude::{Buffer, Either, Error, Result, Status};
 
 mod fetch_buffer;
 mod hash_algo;
 
 use fetch_buffer::fetch_buffer;
-use image_hasher::{HasherConfig, ImageHash};
+use hash_algo::HashAlgorithm;
 
-#[macro_use]
+#[macro_use(napi)]
 extern crate napi_derive;
 
 /// get hash of an image
