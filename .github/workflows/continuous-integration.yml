@@ -48,7 +48,7 @@ jobs:
             target: x86_64-unknown-linux-musl
             docker: ghcr.io/napi-rs/napi-rs/nodejs-rust:lts-alpine
             build: |-
-              apk add pkgconfig openssl-dev;
+              apk add perl;
               set -e &&
               yarn build &&
               strip *.node

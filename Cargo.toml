@@ -20,6 +20,9 @@ tokio = { version = "1.28.1", features = ["full"] }
 [target.x86_64-unknown-linux-gnu.dependencies]
 openssl-sys = { version = "0.9.87", features = ["vendored"] }
 
+[target.x86_64-unknown-linux-musl.dependencies]
+openssl-sys = { version = "0.9.87", features = ["vendored"] }
+
 
 [build-dependencies]
 napi-build = "2.0.1"
