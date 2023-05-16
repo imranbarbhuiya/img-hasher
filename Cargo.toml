@@ -7,7 +7,6 @@ version = "0.0.0"
 crate-type = ["cdylib"]
 
 [dependencies]
-# Default enable napi4 feature, see https://nodejs.org/api/n-api.html#node-api-version-matrix
 napi = { version = "2.12.0", default-features = false, features = [
     "napi4",
     "async",
@@ -17,6 +16,10 @@ image_hasher = "1.1.0"
 image = "0.24.6"
 reqwest = { version = "0.11", features = ["json"] }
 tokio = { version = "1.28.1", features = ["full"] }
+
+[target.x86_64-unknown-linux-gnu.dependencies]
+openssl-sys = { version = "0.9.87", features = ["vendored"] }
+
 
 [build-dependencies]
 napi-build = "2.0.1"
