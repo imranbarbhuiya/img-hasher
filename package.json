@@ -28,7 +28,7 @@
 	},
 	"devDependencies": {
 		"@napi-rs/cli": "^2.16.1",
-		"@types/node": "^20.4.1",
+		"@types/node": "^20.4.2",
 		"prettier": "^3.0.0"
 	},
 	"files": [
