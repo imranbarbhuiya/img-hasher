@@ -13,15 +13,15 @@ napi = { version = "2.13.2", default-features = false, features = [
 ] }
 napi-derive = "2.13.0"
 image_hasher = "1.2.0"
-image = "0.24.6"
+image = "0.24.7"
 reqwest = { version = "0.11", features = ["json"] }
-tokio = { version = "1.29.1", features = ["full"] }
+tokio = { version = "1.31.0", features = ["full"] }
 
 [target.x86_64-unknown-linux-gnu.dependencies]
-openssl-sys = { version = "0.9.90", features = ["vendored"] }
+openssl-sys = { version = "0.9.91", features = ["vendored"] }
 
 [target.x86_64-unknown-linux-musl.dependencies]
-openssl-sys = { version = "0.9.90", features = ["vendored"] }
+openssl-sys = { version = "0.9.91", features = ["vendored"] }
 
 
 [build-dependencies]
