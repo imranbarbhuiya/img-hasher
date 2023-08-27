@@ -28,7 +28,7 @@
 	},
 	"devDependencies": {
 		"@napi-rs/cli": "^2.16.3",
-		"@types/node": "^20.5.1",
+		"@types/node": "^20.5.6",
 		"prettier": "^3.0.2"
 	},
 	"files": [
@@ -50,6 +50,6 @@
 	"engines": {
 		"node": ">= 10"
 	},
-	"packageManager": "yarn@3.6.2",
+	"packageManager": "yarn@3.6.3",
 	"repository": "https://github.com/imranbarbhuiya/img-hasher"
 }
