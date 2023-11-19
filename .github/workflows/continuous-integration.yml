@@ -62,11 +62,11 @@ jobs:
     steps:
       - name: Checkout Project
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
-      - name: Setup node v18
+      - name: Setup node v20
         uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4
         if: ${{ !matrix.settings.docker }}
         with:
-          node-version: 18
+          node-version: 20
           check-latest: true
           cache: yarn
       - name: Install rustup
@@ -139,10 +139,10 @@ jobs:
     steps:
       - name: Checkout Project
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
-      - name: Use Node.js v18
+      - name: Use Node.js v20
         uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4
         with:
-          node-version: 18
+          node-version: 20
           cache: yarn
       - name: Install dependencies
         run: yarn install --immutable

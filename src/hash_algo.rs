@@ -1,5 +1,4 @@
 use image_hasher::HashAlg;
-use napi::bindgen_prelude::*;
 
 /// Hash algorithms implemented by this crate.
 ///
