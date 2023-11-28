@@ -1,7 +1,7 @@
 {
 	"name": "img-hasher",
 	"description": "A fast image hash generator and hamming distance calculator using multiple algorithms",
-	"version": "0.0.10",
+	"version": "0.0.11",
 	"main": "index.js",
 	"types": "index.d.ts",
 	"napi": {
