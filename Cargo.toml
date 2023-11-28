@@ -17,6 +17,9 @@ image = "0.24.7"
 reqwest = { version = "0.11", features = ["json"] }
 tokio = { version = "1.34.0", features = ["full"] }
 
+[target.'cfg(target_os = "android")'.dependencies]
+openssl-sys = { version = "0.9.96", features = ["vendored"] }
+
 [target.x86_64-unknown-linux-gnu.dependencies]
 openssl-sys = { version = "0.9.96", features = ["vendored"] }
 
