@@ -5,21 +5,21 @@ __metadata:
   version: 8
   cacheKey: 10
 
-"@napi-rs/cli@npm:^2.16.5":
-  version: 2.16.5
-  resolution: "@napi-rs/cli@npm:2.16.5"
+"@napi-rs/cli@npm:^2.17.0":
+  version: 2.17.0
+  resolution: "@napi-rs/cli@npm:2.17.0"
   bin:
     napi: scripts/index.js
-  checksum: 37c16d900887970d080e5a3dd5656463d27e5d4c78f3c50d8382af0b4c51752c705e4713c18b46a83ff54a3c58d5d146aabc82ac7b7bbda8134adb7325bb9fa1
+  checksum: cd3f1059a0ae7869a55c5a07e72d9c9ee85352831f7052b3904a54b6d8d8ef1b0da5c5b8a620eca363054b6928404a61882bab6ea1aa326d99f8adbbc2ba6b56
   languageName: node
   linkType: hard
 
-"@types/node@npm:^20.10.2":
-  version: 20.10.2
-  resolution: "@types/node@npm:20.10.2"
+"@types/node@npm:^20.10.4":
+  version: 20.10.4
+  resolution: "@types/node@npm:20.10.4"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: e88d0e92870ec4880642cc39250903a098443d791e864a08d08f4e7fdca0c4c9c0233a6fd98bec356f0ebabc6551152a4590d1c9c34b73a95c2b33935f59185f
+  checksum: c10c1dd13f5c2341ad866777dc32946538a99e1ebd203ae127730814b8e5fa4aedfbcb01cb3e24a5466f1af64bcdfa16e7de6e745ff098fff0942aa779b7fe03
   languageName: node
   linkType: hard
 
@@ -27,18 +27,18 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "img-hasher@workspace:."
   dependencies:
-    "@napi-rs/cli": "npm:^2.16.5"
-    "@types/node": "npm:^20.10.2"
-    prettier: "npm:^3.1.0"
+    "@napi-rs/cli": "npm:^2.17.0"
+    "@types/node": "npm:^20.10.4"
+    prettier: "npm:^3.1.1"
   languageName: unknown
   linkType: soft
 
-"prettier@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "prettier@npm:3.1.0"
+"prettier@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "prettier@npm:3.1.1"
   bin:
     prettier: bin/prettier.cjs
-  checksum: e95e8f93c6b9aea2ac1e86bebe329bee90c8c50d9a23d1f593eba8d7f39b33b3641eb28785001505b6723c47895a5322ad12a2fb855b289cb7bae450ffc34425
+  checksum: 26a249f321b97d26c04483f1bf2eeb22e082a76f4222a2c922bebdc60111691aad4ec3979610e83942e0b956058ec361d9e9c81c185172264eb6db9aa678082b
   languageName: node
   linkType: hard
 
