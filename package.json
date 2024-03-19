@@ -52,13 +52,5 @@
 		"node": ">= 10"
 	},
 	"packageManager": "yarn@4.1.1",
-	"repository": "https://github.com/imranbarbhuiya/img-hasher",
-	"optionalDependencies": {
-		"@imranbarbhuiya/img-hasher-win32-x64-msvc": "0.0.12",
-		"@imranbarbhuiya/img-hasher-darwin-x64": "0.0.12",
-		"@imranbarbhuiya/img-hasher-linux-x64-gnu": "0.0.12",
-		"@imranbarbhuiya/img-hasher-android-arm64": "0.0.12",
-		"@imranbarbhuiya/img-hasher-darwin-arm64": "0.0.12",
-		"@imranbarbhuiya/img-hasher-linux-x64-musl": "0.0.12"
-	}
+	"repository": "https://github.com/imranbarbhuiya/img-hasher"
 }
