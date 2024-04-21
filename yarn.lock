@@ -5,12 +5,12 @@ __metadata:
   version: 8
   cacheKey: 10
 
-"@napi-rs/cli@npm:^2.18.1":
-  version: 2.18.1
-  resolution: "@napi-rs/cli@npm:2.18.1"
+"@napi-rs/cli@npm:^2.18.2":
+  version: 2.18.2
+  resolution: "@napi-rs/cli@npm:2.18.2"
   bin:
     napi: scripts/index.js
-  checksum: 10/b45cb8210d33227974251f7953a7a6cb28d783c778cc037bbf4b2a1b6d2cccb5c3e1339b1968481a75e4dae68fd472b610ff70f85858e79626268ad386012187
+  checksum: 10/814794fbefdba8d035e31eff49550612b96ab9ed4e0679258d569effed9cfe4d2571501630dd466945def18a33feedbf836396363f3a1d64e71139b2ea16e12f
   languageName: node
   linkType: hard
 
@@ -27,7 +27,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "img-hasher@workspace:."
   dependencies:
-    "@napi-rs/cli": "npm:^2.18.1"
+    "@napi-rs/cli": "npm:^2.18.2"
     "@types/node": "npm:^20.12.7"
     prettier: "npm:^3.2.5"
   languageName: unknown
