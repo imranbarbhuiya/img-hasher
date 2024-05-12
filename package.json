@@ -28,8 +28,8 @@
 		"format": "prettier --write . --ignore-unknown && cargo +nightly fmt"
 	},
 	"devDependencies": {
-		"@napi-rs/cli": "^2.18.2",
-		"@types/node": "^20.12.8",
+		"@napi-rs/cli": "^2.18.3",
+		"@types/node": "^20.12.11",
 		"prettier": "^3.2.5"
 	},
 	"files": [
@@ -51,6 +51,6 @@
 	"engines": {
 		"node": ">= 10"
 	},
-	"packageManager": "yarn@4.2.1",
+	"packageManager": "yarn@4.2.2",
 	"repository": "https://github.com/imranbarbhuiya/img-hasher"
 }
