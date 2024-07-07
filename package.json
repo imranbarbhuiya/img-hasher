@@ -28,8 +28,8 @@
 		"format": "prettier --write . --ignore-unknown && cargo +nightly fmt"
 	},
 	"devDependencies": {
-		"@napi-rs/cli": "^2.18.3",
-		"@types/node": "^20.14.9",
+		"@napi-rs/cli": "^2.18.4",
+		"@types/node": "^20.14.10",
 		"prettier": "^3.3.2"
 	},
 	"files": [
