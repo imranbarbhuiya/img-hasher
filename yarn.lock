@@ -14,12 +14,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^20.17.1":
-  version: 20.17.1
-  resolution: "@types/node@npm:20.17.1"
+"@types/node@npm:^20.17.5":
+  version: 20.17.5
+  resolution: "@types/node@npm:20.17.5"
   dependencies:
     undici-types: "npm:~6.19.2"
-  checksum: 10/d1f4cd7158df97167953031f7245af3203f52b5f4965c175253b96489c7c55e4c2d4c8a697bb34211bfb99b8824cfcf6287e16cabdac6184a99eedcb26fdd432
+  checksum: 10/2096b78696bab7d8e410609bbfdf0cad67dd02460bee98f457e0265c97e1587852ee0d17d806a9cfbff7b9183a3e9c2f95d6df0a18c56e708a36790d1d89084b
   languageName: node
   linkType: hard
 
@@ -28,7 +28,7 @@ __metadata:
   resolution: "img-hasher@workspace:."
   dependencies:
     "@napi-rs/cli": "npm:^2.18.4"
-    "@types/node": "npm:^20.17.1"
+    "@types/node": "npm:^20.17.5"
     prettier: "npm:^3.3.3"
   languageName: unknown
   linkType: soft
