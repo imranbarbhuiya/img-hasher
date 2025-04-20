@@ -51,6 +51,6 @@
 	"engines": {
 		"node": ">= 10"
 	},
-	"packageManager": "yarn@4.9.0",
+	"packageManager": "yarn@4.9.1",
 	"repository": "https://github.com/imranbarbhuiya/img-hasher"
 }
