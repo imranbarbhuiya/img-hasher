@@ -29,7 +29,7 @@
 	},
 	"devDependencies": {
 		"@napi-rs/cli": "^2.18.4",
-		"@types/node": "^22.15.30",
+		"@types/node": "^22.15.31",
 		"prettier": "^3.5.3"
 	},
 	"files": [
