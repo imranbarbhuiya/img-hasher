@@ -29,8 +29,8 @@
 	},
 	"devDependencies": {
 		"@napi-rs/cli": "^2.18.4",
-		"@types/node": "^22.15.32",
-		"prettier": "^3.5.3"
+		"@types/node": "^22.15.34",
+		"prettier": "^3.6.2"
 	},
 	"files": [
 		"index.js",
